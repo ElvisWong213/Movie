@@ -7,19 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA39293C2A6C439700DFEA90 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA39293B2A6C439700DFEA90 /* APIKeys.plist */; };
+		AA39293F2A6C54EA00DFEA90 /* WebAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */; };
+		AA72D04A2A68B78B00F1C098 /* GridMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D0492A68B78B00F1C098 /* GridMoviesView.swift */; };
+		AA72D04C2A6996F800F1C098 /* MoviePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */; };
+		AA72D04E2A6A05FB00F1C098 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D04D2A6A05FB00F1C098 /* SearchView.swift */; };
 		AAB331CD2A661B73002D08ED /* MovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB331CC2A661B73002D08ED /* MovieApp.swift */; };
 		AAB331CF2A661B73002D08ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB331CE2A661B73002D08ED /* ContentView.swift */; };
 		AAB331D12A661B74002D08ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB331D02A661B74002D08ED /* Assets.xcassets */; };
 		AAB331D52A661B74002D08ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAB331D42A661B74002D08ED /* Preview Assets.xcassets */; };
+		AAB331DC2A675EC7002D08ED /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB331DB2A675EC7002D08ED /* MovieDetailView.swift */; };
+		AACF1B672A7207B30027E02D /* RatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACF1B662A7207B30027E02D /* RatingBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA39293B2A6C439700DFEA90 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAccess.swift; sourceTree = "<group>"; };
+		AA72D0492A68B78B00F1C098 /* GridMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMoviesView.swift; sourceTree = "<group>"; };
+		AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
+		AA72D04D2A6A05FB00F1C098 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		AAB331C92A661B73002D08ED /* Movie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB331CC2A661B73002D08ED /* MovieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieApp.swift; sourceTree = "<group>"; };
 		AAB331CE2A661B73002D08ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AAB331D02A661B74002D08ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAB331D22A661B74002D08ED /* Movie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Movie.entitlements; sourceTree = "<group>"; };
 		AAB331D42A661B74002D08ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAB331DB2A675EC7002D08ED /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		AACF1B662A7207B30027E02D /* RatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA39293D2A6C541500DFEA90 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		AAB331C02A661B73002D08ED = {
 			isa = PBXGroup;
 			children = (
@@ -52,8 +74,15 @@
 		AAB331CB2A661B73002D08ED /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				AA39293D2A6C541500DFEA90 /* Utility */,
 				AAB331CC2A661B73002D08ED /* MovieApp.swift */,
 				AAB331CE2A661B73002D08ED /* ContentView.swift */,
+				AA72D04D2A6A05FB00F1C098 /* SearchView.swift */,
+				AA72D0492A68B78B00F1C098 /* GridMoviesView.swift */,
+				AA39293B2A6C439700DFEA90 /* APIKeys.plist */,
+				AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */,
+				AAB331DB2A675EC7002D08ED /* MovieDetailView.swift */,
+				AACF1B662A7207B30027E02D /* RatingBar.swift */,
 				AAB331D02A661B74002D08ED /* Assets.xcassets */,
 				AAB331D22A661B74002D08ED /* Movie.entitlements */,
 				AAB331D32A661B74002D08ED /* Preview Content */,
@@ -127,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA39293C2A6C439700DFEA90 /* APIKeys.plist in Resources */,
 				AAB331D52A661B74002D08ED /* Preview Assets.xcassets in Resources */,
 				AAB331D12A661B74002D08ED /* Assets.xcassets in Resources */,
 			);
@@ -139,8 +169,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA39293F2A6C54EA00DFEA90 /* WebAccess.swift in Sources */,
+				AAB331DC2A675EC7002D08ED /* MovieDetailView.swift in Sources */,
 				AAB331CF2A661B73002D08ED /* ContentView.swift in Sources */,
+				AA72D04C2A6996F800F1C098 /* MoviePreviewView.swift in Sources */,
+				AACF1B672A7207B30027E02D /* RatingBar.swift in Sources */,
 				AAB331CD2A661B73002D08ED /* MovieApp.swift in Sources */,
+				AA72D04E2A6A05FB00F1C098 /* SearchView.swift in Sources */,
+				AA72D04A2A68B78B00F1C098 /* GridMoviesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +301,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Movie/Preview Content\"";
+				DEVELOPMENT_TEAM = 447H88N27M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -301,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Movie/Preview Content\"";
+				DEVELOPMENT_TEAM = 447H88N27M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
