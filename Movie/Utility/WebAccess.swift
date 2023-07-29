@@ -38,6 +38,7 @@ class WebAccess {
     }
 }
 
+// MARK: - List Movies
 struct ListOfMovies: Decodable {
     let page: Int
     let totalPages: Int
@@ -53,7 +54,8 @@ struct MovieOverview: Decodable, Identifiable, Hashable {
     let posterPath: String?
 }
 
-struct MovieDetails: Decodable {
+// MARK: - Movie Details
+struct MovieDetail: Decodable {
     let genres: [Genres]
     let title: String
     let voteAverage: Float
@@ -67,3 +69,31 @@ struct Genres: Decodable, Identifiable {
     let id: Int
     let name: String
 }
+
+// MARK: - Movie Review
+struct ListOfReview: Decodable {
+    let page: Int?
+    let results: [Review]?
+    let totalPages: Int?
+}
+
+struct Review: Decodable, Identifiable, Equatable {
+    static func == (lhs: Review, rhs: Review) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    let id: String?
+    let author: String?
+    let authorDetails: AuthorDetails?
+    let content: String?
+    let createdAt: String?
+}
+
+struct AuthorDetails: Decodable {
+    let name: String?
+    let userName: String?
+    let rating: Float?
+}
+
+// MARK: - Video
+

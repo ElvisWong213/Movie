@@ -23,12 +23,12 @@ struct RatingBar: View {
     }
     
     func star(number: Int) -> Image {
-        let converScore = score / 2
-        if number <= Int(converScore) {
+        var remainScore: Float = score / 2
+        if number <= Int(remainScore) {
             return onStar
         }
-        let remain = Float(number) - converScore
-        if remain.remainder(dividingBy: Float(number)) < 1 && remain.remainder(dividingBy: Float(number)) > -1{
+        remainScore -= Float(number - 1)
+        if remainScore < 1 && remainScore > 0 {
             return halfStar
         }
         return offStar

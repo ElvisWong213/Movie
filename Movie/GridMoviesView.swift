@@ -31,7 +31,7 @@ struct GridMoviesView: View {
                         .task {
                             if movies.last == movie && currentPage <= totalPages! {
                                 currentPage += 1
-                                await updateMoviesList(page: currentPage)
+                                await getMoviesList(page: currentPage)
                             }
                         }
                     }
@@ -41,12 +41,12 @@ struct GridMoviesView: View {
             .refreshable {
                 currentPage = 1
                 movies.removeAll()
-                await updateMoviesList(page: currentPage)
+                await getMoviesList(page: currentPage)
             }
             .navigationTitle(selectedCategory?.rawValue ?? "Error")
         }
         .task(priority: .userInitiated) {
-            await updateMoviesList(page: currentPage)
+            await getMoviesList(page: currentPage)
         }
     }
     
@@ -63,7 +63,7 @@ struct GridMoviesView: View {
         return url
     }
     
-    func updateMoviesList(page: Int) async {
+    func getMoviesList(page: Int) async {
         do {
             let apiKey = try webAccess.getAPIKey()
             let baseUrl = getBaseURL()
@@ -75,8 +75,6 @@ struct GridMoviesView: View {
             print(error)
         }
     }
-    
-    
 }
 
 struct PopularMoviesView_Previews: PreviewProvider {
