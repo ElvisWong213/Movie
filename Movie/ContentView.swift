@@ -16,18 +16,16 @@ enum TopMenuCategory: String, CaseIterable, Identifiable, Hashable {
 }
 
 struct ContentView: View {
-    @State private var presentedMovies: [MovieOverview] = []
     @State private var selectedCategory: TopMenuCategory = .nowPlaying
-    @State private var selectedMovie: MovieOverview?
     
     var body: some View {
         TabView(selection: $selectedCategory) {
-            GridMoviesView(selectedMovie: $selectedMovie, selectedCategory: TopMenuCategory.nowPlaying)
+            GridMoviesView(selectedCategory: TopMenuCategory.nowPlaying)
                 .tabItem {
                     Label(TopMenuCategory.nowPlaying.rawValue, systemImage: "play.fill")
                 }
                 .tag(TopMenuCategory.nowPlaying)
-            GridMoviesView(selectedMovie: $selectedMovie, selectedCategory: TopMenuCategory.trending)
+            GridMoviesView(selectedCategory: TopMenuCategory.trending)
                 .tabItem {
                     Label(TopMenuCategory.trending.rawValue, systemImage: "chart.line.uptrend.xyaxis")
                 }
