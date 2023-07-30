@@ -20,9 +20,9 @@ class ReviewsViewModel: ObservableObject {
             let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)/reviews?api_key=\(apiKey)&page=\(page)")!
             
             let data = try await webAccess.fetchMovieFromAPI(url: url, model: ListOfReview.self)
-            reviewTotalPages = data.totalPages ?? 0
+            reviewTotalPages = data.totalPages
             DispatchQueue.main.async {
-                self.reviews.append(contentsOf: data.results ?? [])
+                self.reviews.append(contentsOf: data.results)
             }
         } catch {
             print(error)

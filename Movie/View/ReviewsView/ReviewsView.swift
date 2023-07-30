@@ -16,11 +16,11 @@ struct ReviewsView: View {
             ForEach(reviewsViewModel.reviews) { review in
                 LazyVStack(alignment: .leading) {
                     HStack {
-                        Text("\(review.author ?? "")")
+                        Text("\(review.author)")
                             .bold()
-                        RatingBar(score: review.authorDetails?.rating ?? 0)
+                        RatingBar(score: review.authorDetails.rating ?? 0)
                     }
-                    ExpandText(text: review.content ?? "")
+                    ExpandText(text: review.content)
                 }
                 .padding(.vertical)
                 .task {

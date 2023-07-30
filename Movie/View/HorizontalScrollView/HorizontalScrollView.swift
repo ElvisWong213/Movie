@@ -17,6 +17,7 @@ struct HorizontalScrollView: View {
         VStack(alignment: .leading) {
             Text(title)
                 .font(.title)
+                .bold()
             ScrollView(.horizontal) {
                 LazyHGrid(rows: [GridItem(.fixed(200))], spacing: 20) {
                     ForEach(horizontalScrollViewModel.movies) { movie in

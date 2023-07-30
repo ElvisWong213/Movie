@@ -8,17 +8,14 @@
 import SwiftUI
 
 struct MovieDetailView: View {
-    private let webAccess = WebAccess()
-    
-    @State var data: MovieDetail? = nil
-    @State var id: Int
-    @State var selection = 1
+    @StateObject var movieDetailViewModel = MovieDetailViewModel()
+    var id: Int
     
     var body: some View {
         ScrollView {
             VStack {
                 HStack {
-                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w300\(data?.posterPath ?? "")")) { phase in
+                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w300\(movieDetailViewModel.data?.posterPath ?? "")")) { phase in
                         if let image = phase.image {
                             image
                                 .resizable()
@@ -34,28 +31,28 @@ struct MovieDetailView: View {
                     }
                     .frame(width: 150)
                     VStack(alignment: .leading) {
-                        Text("\(data?.title ?? "")")
-                        RatingBar(score: data?.voteAverage ?? 0)
+                        Text("\(movieDetailViewModel.data?.title ?? "")")
+                        RatingBar(score: movieDetailViewModel.data?.voteAverage ?? 0)
                     }
                     .padding(.horizontal)
                 }
                 .padding(.bottom)
-                Picker(selection: $selection, label: Text("Picker")) {
+                Picker(selection: $movieDetailViewModel.selection, label: Text("Picker")) {
                     Text("Informations").tag(1)
                     Text("Reviews").tag(2)
                 }
                 .pickerStyle(.segmented)
-                switch(selection) {
+                switch(movieDetailViewModel.selection) {
                 case 1:
                     VStack(alignment: .leading) {
                         HStack {
-                            MovieLabel(text: data?.genres.first?.name ?? "")
-                            MovieLabel(text: data?.releaseDate ?? "")
-                            MovieLabel(text: String(data?.runtime ?? 0))
+                            MovieLabel(text: movieDetailViewModel.data?.genres.first?.name ?? "")
+                            MovieLabel(text: movieDetailViewModel.data?.releaseDate ?? "")
+                            MovieLabel(text: String(movieDetailViewModel.data?.runtime ?? 0) + " min")
                         }
                         .padding(.bottom)
                         .font(.footnote)
-                        ExpandText(text: data?.overview ?? "")
+                        ExpandText(text: movieDetailViewModel.data?.overview ?? "")
                             .padding(.bottom)
                         HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
                         HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
@@ -68,21 +65,10 @@ struct MovieDetailView: View {
             }
             .padding()
         }
-        .navigationTitle(data?.title ?? "Error")
+        .navigationTitle(movieDetailViewModel.data?.title ?? "Error")
         .navigationBarTitleDisplayMode(.inline)
         .task {
-            await loadMovieDetails()
-        }
-    }
-    
-    func loadMovieDetails() async {
-        do {
-            let apiKey = try webAccess.getAPIKey()
-            let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)?api_key=\(apiKey)")!
-            
-            data = try await webAccess.fetchMovieFromAPI(url: url, model: MovieDetail.self)
-        } catch {
-            print(error)
+            await movieDetailViewModel.loadMovieDetails(id: id)
         }
     }
 }

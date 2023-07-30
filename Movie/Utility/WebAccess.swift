@@ -72,9 +72,9 @@ struct Genres: Decodable, Identifiable {
 
 // MARK: - Movie Review
 struct ListOfReview: Decodable {
-    let page: Int?
-    let results: [Review]?
-    let totalPages: Int?
+    let page: Int
+    let results: [Review]
+    let totalPages: Int
 }
 
 struct Review: Decodable, Identifiable, Equatable {
@@ -82,15 +82,15 @@ struct Review: Decodable, Identifiable, Equatable {
         return lhs.id == rhs.id
     }
     
-    let id: String?
-    let author: String?
-    let authorDetails: AuthorDetails?
-    let content: String?
-    let createdAt: String?
+    let id: String
+    let author: String
+    let authorDetails: AuthorDetails
+    let content: String
+    let createdAt: String
 }
 
 struct AuthorDetails: Decodable {
-    let name: String?
+    let name: String
     let userName: String?
     let rating: Float?
 }
