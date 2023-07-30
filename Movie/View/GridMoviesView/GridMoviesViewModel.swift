@@ -51,7 +51,9 @@ class GridMoviesViewModel: ObservableObject {
     
     func refreshMovieList(selectedCategory: TopMenuCategory) async {
         currentPage = 1
-        movies.removeAll()
+        DispatchQueue.main.async {
+            self.movies.removeAll()
+        }
         await getMoviesList(selectedCategory: selectedCategory,page: currentPage)
     }
 }

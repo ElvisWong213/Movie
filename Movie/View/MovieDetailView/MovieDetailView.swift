@@ -15,7 +15,7 @@ struct MovieDetailView: View {
         ScrollView {
             VStack {
                 HStack {
-                    AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w300\(movieDetailViewModel.data?.posterPath ?? "")")) { phase in
+                    CacheAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w300\(movieDetailViewModel.data?.posterPath ?? "")")!) { phase in
                         if let image = phase.image {
                             image
                                 .resizable()

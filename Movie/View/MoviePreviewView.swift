@@ -12,7 +12,7 @@ struct MoviePreviewView: View {
 
     var body: some View {
         ZStack {
-            AsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w154\(data.posterPath ?? "")")) { phase in
+            CacheAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w154\(data.posterPath ?? "")")!) { phase in
                 if let image = phase.image {
                     image
                         .resizable()
