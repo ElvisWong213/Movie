@@ -54,14 +54,14 @@ struct MovieDetailView: View {
                         .font(.footnote)
                         ExpandText(text: movieDetailViewModel.data?.overview ?? "")
                             .padding(.bottom)
-                        HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
-                        HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
                     }
                 case 2:
                     ReviewsView(id: id)
                 default:
                     Text("Error")
                 }
+                HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
+                HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
             }
             .padding()
         }
