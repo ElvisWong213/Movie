@@ -20,15 +20,15 @@ struct GridMoviesView: View {
                             MovieDetailView(id: movie.id)
                         } label: {
                             MoviePreviewView(data: movie)
-                                .padding(.bottom)
+                                .frame(height: 200)
                         }
                         .task {
                             await gridMoviesViewModel.updateMoviesList(selectedCategory: selectedCategory, movie: movie)
                         }
                     }
                 }
-                .padding(.horizontal)
             }
+            .padding(.horizontal)
             .refreshable {
                 await gridMoviesViewModel.refreshMovieList(selectedCategory: selectedCategory)
             }

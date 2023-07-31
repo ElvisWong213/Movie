@@ -11,6 +11,8 @@ class ReviewsViewModel: ObservableObject {
     private let webAccess = WebAccess()
 
     @Published var reviews: [Review] = []
+    @Published var totalReviews = 0
+    @Published var showAllReviews = false
     var reviewTotalPages = 0
     var reviewCurrentPage = 1
     
@@ -21,8 +23,9 @@ class ReviewsViewModel: ObservableObject {
             
             let data = try await webAccess.fetchMovieFromAPI(url: url, model: ListOfReview.self)
             reviewTotalPages = data.totalPages
-            DispatchQueue.main.async {
-                self.reviews.append(contentsOf: data.results)
+            DispatchQueue.main.async { [self] in
+                reviews.append(contentsOf: data.results)
+                totalReviews = reviews.count
             }
         } catch {
             print(error)

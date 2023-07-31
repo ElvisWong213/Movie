@@ -21,6 +21,7 @@ struct MoviePreviewView: View {
                     ZStack {
                         Rectangle()
                             .foregroundColor(.gray)
+                            .scaledToFill()
                         VStack {
                             Spacer()
                             Image(systemName: "photo")
@@ -49,12 +50,13 @@ struct MoviePreviewView: View {
                 }
             }
         }
+        .scaledToFit()
     }
 }
 
 struct MoviePreviewView_Previews: PreviewProvider {
     static var previews: some View {
-        @State var movie: MovieOverview = MovieOverview(id: 667538, title: "Transformers: Rise of the Beasts", releaseDate: "2023-06-06", overview: "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.", voteAverage: 7.3, posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg")
+        @State var movie: MovieOverview = MovieOverview(id: 667538, title: "Transformers: Rise of the Beasts", releaseDate: "2023-06-06", overview: "When a new threat capable of destroying the entire planet emerges, Optimus Prime and the Autobots must team up with a powerful faction known as the Maximals. With the fate of humanity hanging in the balance, humans Noah and Elena will do whatever it takes to help the Transformers as they engage in the ultimate battle to save Earth.", voteAverage: 7.3, posterPath: "/gPbM0MK8CP8A174rmUwGsADNYKD.jpgs")
         MoviePreviewView(data: movie)
     }
 }

@@ -22,10 +22,10 @@ struct CacheAsyncImage<Content>: View where Content: View {
     
     var body: some View {
         if let cached = ImageCache[url] {
-            let _ = print("cached \(url.absoluteString)")
+//            let _ = print("cached \(url.absoluteString)")
             content(.success(cached))
         } else {
-            let _ = print("request \(url.absoluteString)")
+//            let _ = print("request \(url.absoluteString)")
             AsyncImage(url: url, scale: scale, transaction: transaction) { phase in
                 cacheAndRender(phase: phase)
             }
@@ -59,12 +59,17 @@ struct CacheAsyncImage_Previews: PreviewProvider {
 
 fileprivate class ImageCache {
     static private var cache: [URL: Image] = [:]
+    static private let size = 250
     
     static subscript(url: URL) -> Image? {
         get {
             ImageCache.cache[url]
         }
         set {
+            let keys = cache.keys
+            if keys.count > size {
+                ImageCache.cache.remove(at: keys.startIndex)
+            }
             ImageCache.cache[url] = newValue
         }
     }

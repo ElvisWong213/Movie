@@ -15,23 +15,33 @@ struct HorizontalScrollView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(title)
-                .font(.title)
-                .bold()
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: [GridItem(.fixed(200))], spacing: 20) {
-                    ForEach(horizontalScrollViewModel.movies) { movie in
-                        NavigationLink {
-                            MovieDetailView(id: movie.id)
-                        } label: {
-                            MoviePreviewView(data: movie)
-                        }
-                        .task {
-                            await horizontalScrollViewModel.updateListOfMovies(movie: movie, baseURL: baseURL)
+            if !horizontalScrollViewModel.movies.isEmpty {
+                Text(title)
+                    .font(.title)
+                    .bold()
+                ScrollView(.horizontal) {
+                    LazyHGrid(rows: [GridItem(.fixed(200))], spacing: 20) {
+                        ForEach(horizontalScrollViewModel.movies) { movie in
+                            NavigationLink {
+                                MovieDetailView(id: movie.id)
+                            } label: {
+                                MoviePreviewView(data: movie)
+                                    .frame(maxWidth: 150)
+                            }
+                            .task {
+                                await horizontalScrollViewModel.updateListOfMovies(movie: movie, baseURL: baseURL)
+                            }
                         }
                     }
                 }
                 .frame(height: 200)
+            } else {
+                HStack {
+                    Spacer()
+                    Text("No \(title)")
+                        .bold()
+                    Spacer()
+                }
             }
         }
         .task {

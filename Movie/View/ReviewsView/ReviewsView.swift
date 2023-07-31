@@ -13,19 +13,36 @@ struct ReviewsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            ForEach(reviewsViewModel.reviews) { review in
-                LazyVStack(alignment: .leading) {
-                    HStack {
-                        Text("\(review.author)")
-                            .bold()
-                        RatingBar(score: review.authorDetails.rating ?? 0)
+            if !reviewsViewModel.reviews.isEmpty {
+                ForEach(reviewsViewModel.reviews.prefix(reviewsViewModel.showAllReviews ? reviewsViewModel.totalReviews : 2)) { review in
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text("\(review.author)")
+                                .bold()
+                            RatingBar(score: review.authorDetails.rating ?? 0)
+                        }
+                        ExpandText(text: review.content)
                     }
-                    ExpandText(text: review.content)
+                    .padding(.vertical)
+                    .task {
+                        await reviewsViewModel.updateReviews(review: review, id: id)
+                    }
                 }
-                .padding(.vertical)
-                .task {
-                    await reviewsViewModel.updateReviews(review: review, id: id)
+                if reviewsViewModel.totalReviews > 2 {
+                    HStack {
+                        Spacer()
+                        Button (action: {
+                            reviewsViewModel.showAllReviews.toggle()
+                        }) {
+                            Text(reviewsViewModel.showAllReviews ? "Show Less" : "Show All")
+                                .bold()
+                        }
+                        Spacer()
+                    }
                 }
+            } else {
+                Text("No Reviews")
+                    .bold()
             }
         }
         .task {

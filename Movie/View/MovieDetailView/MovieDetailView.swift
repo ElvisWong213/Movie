@@ -32,6 +32,7 @@ struct MovieDetailView: View {
                     .frame(width: 150)
                     VStack(alignment: .leading) {
                         Text("\(movieDetailViewModel.data?.title ?? "")")
+                            .padding(.bottom)
                         RatingBar(score: movieDetailViewModel.data?.voteAverage ?? 0)
                     }
                     .padding(.horizontal)
@@ -57,9 +58,12 @@ struct MovieDetailView: View {
                     }
                 case 2:
                     ReviewsView(id: id)
+                        .padding(.bottom)
                 default:
                     Text("Error")
                 }
+                YouTubeView(id: id)
+                    .frame(height: 200)
                 HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
                 HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
             }
