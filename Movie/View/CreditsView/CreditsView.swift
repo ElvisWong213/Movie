@@ -17,12 +17,20 @@ struct CreditsView: View {
                 .font(.title)
                 .bold()
             ScrollView(.horizontal) {
-                LazyHGrid(rows: [GridItem(.fixed(150)), GridItem(.fixed(10)), GridItem(.fixed(10))], spacing: 20) {
+                LazyHGrid(rows: [GridItem(.fixed(150))], spacing: 20) {
                     ForEach(creditsViewModel.casts) { cast in
-                        ActorsPreview(profilePath: cast.profilePath ?? "", name: cast.name, position: cast.character)
+                        NavigationLink {
+                            ActorsDetailView(id: cast.id)
+                        } label: {
+                            ActorsPreview(profilePath: cast.profilePath ?? "", name: cast.name, position: cast.character)
+                        }
                     }
                     ForEach(creditsViewModel.crews) { crew in
-                        ActorsPreview(profilePath: crew.profilePath ?? "", name: crew.name, position: crew.department)
+                        NavigationLink {
+                            ActorsDetailView(id: crew.id)
+                        } label: {
+                            ActorsPreview(profilePath: crew.profilePath ?? "", name: crew.name, position: crew.department)
+                        }
                     }
                 }
             }

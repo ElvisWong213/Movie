@@ -13,25 +13,27 @@ struct ActorsPreview: View {
     var position: String
     
     var body: some View {
-        CacheAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w185\(profilePath)")!) { phase in
-            if let image = phase.image {
-                image
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
-            } else if phase.error != nil {
-                Image(systemName: "photo")
-                Text("There was an error loading an image")
-                    .foregroundColor(.red)
-            } else {
-                ProgressView()
+        VStack {
+            CacheAsyncImage(url: URL(string: "https://image.tmdb.org/t/p/w185\(profilePath)")!) { phase in
+                if let image = phase.image {
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                } else if phase.error != nil {
+                    Image(systemName: "photo")
+                    Text("There was an error loading an image")
+                        .foregroundColor(.red)
+                } else {
+                    ProgressView()
+                }
             }
+            .frame(width: 100, height: 100)
+            Text(name)
+                .font(.callout)
+            Text(position)
+                .font(.footnote)
         }
-        .frame(width: 150, height: 150)
-        Text(name)
-            .font(.callout)
-        Text(position)
-            .font(.footnote)
     }
 }
 

@@ -15,6 +15,7 @@ struct MovieDetail: Decodable {
     let posterPath: String?
     let runtime: Int
     let releaseDate: String
+    let backdropPath: String?
 }
 
 struct Genres: Decodable, Identifiable {

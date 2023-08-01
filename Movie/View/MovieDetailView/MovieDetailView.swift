@@ -29,13 +29,31 @@ struct MovieDetailView: View {
                         }
                         
                     }
-                    .frame(width: 150)
+                    .frame(width: UIScreen.main.bounds.width * 0.4)
+                    .shadow(radius: 2, x: 5, y: 5)
+                    .padding()
                     VStack(alignment: .leading) {
                         Text("\(movieDetailViewModel.data?.title ?? "")")
+                            .bold()
                             .padding(.bottom)
+                            .foregroundColor(.white)
                         RatingBar(score: movieDetailViewModel.data?.voteAverage ?? 0)
                     }
+                    .shadow(radius: 2, x: 5, y: 5)
                     .padding(.horizontal)
+                }
+                .background() {
+                    CacheAsyncImage(url: URL(string:  "https://image.tmdb.org/t/p/w300\(movieDetailViewModel.data?.backdropPath ?? "")")!) { phase in
+                        if let image = phase.image {
+                            image
+                                .resizable()
+                                .scaledToFill()
+                        } else {
+                            ProgressView()
+                        }
+                    }
+                    .blur(radius: 3)
+                    .brightness(-0.1)
                 }
                 .padding(.bottom)
                 Picker(selection: $movieDetailViewModel.selection, label: Text("Picker")) {
@@ -63,7 +81,7 @@ struct MovieDetailView: View {
                     Text("Error")
                 }
                 YouTubeView(id: id)
-                    .frame(height: UIScreen.main.bounds.width * 0.6)
+                    .frame(height: UIScreen.main.bounds.width * 0.65)
                 CreditsView(id: id)
                 HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
                 HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
