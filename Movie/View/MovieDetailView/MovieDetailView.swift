@@ -63,7 +63,8 @@ struct MovieDetailView: View {
                     Text("Error")
                 }
                 YouTubeView(id: id)
-                    .frame(height: 200)
+                    .frame(height: UIScreen.main.bounds.width * 0.6)
+                CreditsView(id: id)
                 HorizontalScrollView(title: "Similar", baseURL: "https://api.themoviedb.org/3/movie/\(id)/similar")
                 HorizontalScrollView(title: "Recommendations", baseURL: "https://api.themoviedb.org/3/movie/\(id)/recommendations")
             }

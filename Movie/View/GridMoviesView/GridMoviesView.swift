@@ -27,8 +27,8 @@ struct GridMoviesView: View {
                         }
                     }
                 }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
             .refreshable {
                 await gridMoviesViewModel.refreshMovieList(selectedCategory: selectedCategory)
             }

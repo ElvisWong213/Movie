@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct YouTubeView: View {
+    private let webAccess = WebAccess()
     @State var videoKey: String = ""
     var id: Int
 
     var body: some View {
-        ZStack {
-            WebView(url: URL(string: "https://www.youtube.com/embed/\(videoKey)")!)
-                .allowsHitTesting(false)
-            Link(destination: URL(string: "https://www.youtube.com/watch?v=\(videoKey)")!) {
-                Rectangle()
-                    .foregroundColor(.clear)
+        VStack(alignment: .leading) {
+            Text("Trailer")
+                .font(.title)
+                .bold()
+            ZStack {
+                WebView(url: URL(string: "https://www.youtube.com/embed/\(videoKey)")!)
+                    .allowsHitTesting(false)
+                Link(destination: URL(string: "https://www.youtube.com/watch?v=\(videoKey)")!) {
+                    Rectangle()
+                        .foregroundColor(.clear)
+                }
             }
         }
         .task {
@@ -26,7 +32,6 @@ struct YouTubeView: View {
     }
     
     func getVideoKey() async {
-        let webAccess = WebAccess()
         do {
             let apiKey = try webAccess.getAPIKey()
             let url = URL(string: "https://api.themoviedb.org/3/movie/\(id)/videos?api_key=\(apiKey)")!

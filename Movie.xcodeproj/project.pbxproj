@@ -10,6 +10,11 @@
 		AA39293C2A6C439700DFEA90 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA39293B2A6C439700DFEA90 /* APIKeys.plist */; };
 		AA39293F2A6C54EA00DFEA90 /* WebAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */; };
 		AA4CDC2F2A77F15E00CE13C8 /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC2E2A77F15E00CE13C8 /* YouTubeView.swift */; };
+		AA4CDC312A7817A800CE13C8 /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC302A7817A800CE13C8 /* Credits.swift */; };
+		AA4CDC332A78199300CE13C8 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC322A78199300CE13C8 /* CreditsView.swift */; };
+		AA4CDC352A78B21F00CE13C8 /* ActorsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC342A78B21F00CE13C8 /* ActorsPreview.swift */; };
+		AA4CDC382A78B47C00CE13C8 /* CreditsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC372A78B47C00CE13C8 /* CreditsViewModel.swift */; };
+		AA4CDC3A2A78B4FE00CE13C8 /* ActorsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CDC392A78B4FE00CE13C8 /* ActorsDetailView.swift */; };
 		AA72D04A2A68B78B00F1C098 /* GridMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D0492A68B78B00F1C098 /* GridMoviesView.swift */; };
 		AA72D04C2A6996F800F1C098 /* MoviePreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */; };
 		AA72D04E2A6A05FB00F1C098 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72D04D2A6A05FB00F1C098 /* SearchView.swift */; };
@@ -40,6 +45,11 @@
 		AA39293B2A6C439700DFEA90 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAccess.swift; sourceTree = "<group>"; };
 		AA4CDC2E2A77F15E00CE13C8 /* YouTubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeView.swift; sourceTree = "<group>"; };
+		AA4CDC302A7817A800CE13C8 /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		AA4CDC322A78199300CE13C8 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
+		AA4CDC342A78B21F00CE13C8 /* ActorsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsPreview.swift; sourceTree = "<group>"; };
+		AA4CDC372A78B47C00CE13C8 /* CreditsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewModel.swift; sourceTree = "<group>"; };
+		AA4CDC392A78B4FE00CE13C8 /* ActorsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsDetailView.swift; sourceTree = "<group>"; };
 		AA72D0492A68B78B00F1C098 /* GridMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMoviesView.swift; sourceTree = "<group>"; };
 		AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewView.swift; sourceTree = "<group>"; };
 		AA72D04D2A6A05FB00F1C098 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -86,6 +96,15 @@
 				AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		AA4CDC362A78B47000CE13C8 /* CreditsView */ = {
+			isa = PBXGroup;
+			children = (
+				AA4CDC322A78199300CE13C8 /* CreditsView.swift */,
+				AA4CDC372A78B47C00CE13C8 /* CreditsViewModel.swift */,
+			);
+			path = CreditsView;
 			sourceTree = "<group>";
 		};
 		AAB331C02A661B73002D08ED = {
@@ -146,6 +165,7 @@
 				AACF1B8A2A76CA950027E02D /* CacheAsyncImage.swift */,
 				AACF1B952A7713310027E02D /* WebView.swift */,
 				AA4CDC2E2A77F15E00CE13C8 /* YouTubeView.swift */,
+				AA4CDC342A78B21F00CE13C8 /* ActorsPreview.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -168,6 +188,8 @@
 				AACF1B7D2A761F2B0027E02D /* GridMoviesView */,
 				AACF1B742A7610FB0027E02D /* HorizontalScrollView */,
 				AA72D04B2A6996F800F1C098 /* MoviePreviewView.swift */,
+				AA4CDC362A78B47000CE13C8 /* CreditsView */,
+				AA4CDC392A78B4FE00CE13C8 /* ActorsDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -206,6 +228,7 @@
 				AACF1B852A76C9DE0027E02D /* MovieDetail.swift */,
 				AACF1B832A76C9CB0027E02D /* ListOfMovies.swift */,
 				AACF1B8E2A76E6420027E02D /* MovieVideo.swift */,
+				AA4CDC302A7817A800CE13C8 /* Credits.swift */,
 			);
 			path = APIResponseType;
 			sourceTree = "<group>";
@@ -286,13 +309,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AACF1B6E2A757FA80027E02D /* SearchViewModel.swift in Sources */,
+				AA4CDC352A78B21F00CE13C8 /* ActorsPreview.swift in Sources */,
 				AACF1B962A7713310027E02D /* WebView.swift in Sources */,
+				AA4CDC382A78B47C00CE13C8 /* CreditsViewModel.swift in Sources */,
 				AA39293F2A6C54EA00DFEA90 /* WebAccess.swift in Sources */,
 				AACF1B7C2A761A560027E02D /* ReviewsViewModel.swift in Sources */,
 				AAB331DC2A675EC7002D08ED /* MovieDetailView.swift in Sources */,
 				AACF1B762A76110E0027E02D /* HorizontalScrollViewModel.swift in Sources */,
 				AACF1B8B2A76CA950027E02D /* CacheAsyncImage.swift in Sources */,
 				AACF1B8F2A76E6420027E02D /* MovieVideo.swift in Sources */,
+				AA4CDC312A7817A800CE13C8 /* Credits.swift in Sources */,
 				AAB331CF2A661B73002D08ED /* ContentView.swift in Sources */,
 				AA72D04C2A6996F800F1C098 /* MoviePreviewView.swift in Sources */,
 				AACF1B842A76C9CB0027E02D /* ListOfMovies.swift in Sources */,
@@ -305,6 +331,8 @@
 				AAB331CD2A661B73002D08ED /* MovieApp.swift in Sources */,
 				AACF1B782A7619280027E02D /* ReviewsView.swift in Sources */,
 				AACF1B692A7460CC0027E02D /* ExpandText.swift in Sources */,
+				AA4CDC332A78199300CE13C8 /* CreditsView.swift in Sources */,
+				AA4CDC3A2A78B4FE00CE13C8 /* ActorsDetailView.swift in Sources */,
 				AA4CDC2F2A77F15E00CE13C8 /* YouTubeView.swift in Sources */,
 				AACF1B822A7626EF0027E02D /* MovieDetailViewModel.swift in Sources */,
 				AA72D04E2A6A05FB00F1C098 /* SearchView.swift in Sources */,
