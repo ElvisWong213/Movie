@@ -92,6 +92,7 @@
 		AA39293D2A6C541500DFEA90 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				AA39293B2A6C439700DFEA90 /* APIKeys.plist */,
 				AACF1B892A76CA1A0027E02D /* APIResponseType */,
 				AA39293E2A6C54EA00DFEA90 /* WebAccess.swift */,
 			);
@@ -131,7 +132,6 @@
 				AA39293D2A6C541500DFEA90 /* Network */,
 				AAB331CC2A661B73002D08ED /* MovieApp.swift */,
 				AAB331CE2A661B73002D08ED /* ContentView.swift */,
-				AA39293B2A6C439700DFEA90 /* APIKeys.plist */,
 				AAB331D02A661B74002D08ED /* Assets.xcassets */,
 				AAB331D22A661B74002D08ED /* Movie.entitlements */,
 				AAB331D32A661B74002D08ED /* Preview Content */,
