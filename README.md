@@ -5,7 +5,7 @@
 ## About this project
 This application allows users to explore and discover a vast collection of movies using the TMDB API. With the Movie App, users can stay up-to-date with the latest movie releases, search for their favorite films, explore detailed movie information, access reviews, and delve into the cast and crew details. Additionally, the app provides recommendations for similar movies, enhancing the user's movie-watching experience.
 
-## Used Technology
+## Framework Used
 - SwiftUI 📱
 - WebKit 🌍
 - Networking (Async/Await) 🌐
