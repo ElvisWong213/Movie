@@ -6,10 +6,19 @@
 This application allows users to explore and discover a vast collection of movies using the TMDB API. With the Movie App, users can stay up-to-date with the latest movie releases, search for their favorite films, explore detailed movie information, access reviews, and delve into the cast and crew details. Additionally, the app provides recommendations for similar movies, enhancing the user's movie-watching experience.
 
 ## Framework Used
+
 - SwiftUI 📱
 - WebKit 🌍
 - Networking (Async/Await) 🌐
 - TMDB API
+
+## Requirements 
+- iOS 16.4+
+- Swift 5+
+
+## Setup
+Create `APIKeys.plist` file into `Network` folder and add Your TMDB API key to the file
+<img width="1512" alt="截圖 2023-12-08 上午2 39 44" src="https://github.com/ElvisWong213/Movie/assets/40566101/26211dd5-abf3-46a0-8494-1de73157ddcf">
 
 ## Features
 1. **Latest Movie Updates**: The app provides users with real-time updates on the newest movie releases, ensuring they are always in the know about the latest cinematic offerings.
